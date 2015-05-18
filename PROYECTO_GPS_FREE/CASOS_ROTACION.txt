@@ -1,0 +1,105 @@
+A.
+
+EJE Y NORMAL
+EJE X NORMAL
+kx.getY() > k.getY()
+
+B.
+
+EJE Y NORMAL
+EJE X NORMAL
+kx.getY() < k.getY()
+
+C.
+
+EJE Y NORMAL
+EJE X OPUESTO
+kx.getY() < k.getY()
+
+D.
+EJE Y NORMAL
+EJE X OPUESTO
+kx.getY() > k.getY()
+
+
+E.
+EJE Y OPUESTO
+EJE X NORMAL
+kx.getY() > k.getY()
+
+F.
+EJE Y OPUESTO
+EJE X NORMAL
+kx.getY() < k.getY()
+
+G.
+EJE Y OPUESTO
+EJE X OPUESTO
+kx.getY() > k.getY()
+
+H.
+EJE Y OPUESTO
+EJE X OPUESTO
+kx.getY() < k.getY()
+
+
+
+EN CODIGO
+
+if (esEjeYOpuesto(k, kx, ky)) {
+
+			// ES EJE X OPUESTO
+			if (esEjeXOpuesto(k, kx)) {
+				// KX MAYOR QUE K
+				if (kx.getY() > k.getY()) {
+					result = 180.0 - angulo;
+					System.out.println("CASO G");
+					// KX MENOR QUE K
+				} else {
+					result = -1 * (180.0 - angulo);
+					System.out.println("CASO H");
+				}
+				// ES EJE X NORMAL
+			} else {
+				// KX.Y ES MAYOR QUE K.Y
+				if (kx.getY() > k.getY()) {
+					System.out.println("CASO E");
+					result = 360.0 - angulo;
+					System.out.println("NECESITO ESPEJO");
+					// KX.Y ES MENOR QUE K.Y
+				} else {
+					result = angulo;
+					System.out.println("NECESITO ESPEJO");
+					System.out.println("CASO F");
+				}
+			}
+			// Es Eje Y NORMAL
+		} else {
+			// ES EJE X OPUESTO
+			if (esEjeXOpuesto(k, kx)) {
+				// KX.Y ES MAYOR QUE K.Y
+				if (kx.getY() > k.getY()) {
+					System.out.println("NECESITO ESPEJO");
+					result = Math.toDegrees(Math.PI) + angulo;
+					System.out.println("CASO D");
+					// KX.Y ES MENOR QUE K.Y
+				} else {
+					result = Math.toDegrees(Math.PI) - angulo;
+					System.out.println("NECESITO ESPEJO");
+					System.out.println("CASO C");
+				}
+				// ES EJE X NORMAL
+			} else {
+				// KX.Y ES MAYOR QUE K.Y
+				if (kx.getY() > k.getY()) {
+					result = angulo;
+					// KX.Y ES MENOR QUE K.Y
+					System.out.println("CASO A");
+
+				} else {
+					result = 360.0 - angulo;
+					System.out.println("CASO B");
+				}
+			}
+
+		}
